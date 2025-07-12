@@ -81,6 +81,4 @@ An intelligent web application that assists students with subject-related querie
 - If Ollama is not running, fetch errors will occur.
 - Responses are limited to the first 3000 characters for readability.
 
-## 📧 Contact
 
-For feedback or queries, contact **Shrinath Jamadar** (project owner).
