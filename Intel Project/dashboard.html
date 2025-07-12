@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <div class="Navbar">
+        <div class="left-section">
+            <img src="brain icon.webp" alt="App Icon" class="app-icon">
+            <div class="Heading">
+                <h1>AI Learning Assistant</h1>
+                <p class="sub-heading">Intelligent Classroom Companion</p>
+            </div>
+        </div>
+
+        <div class="right-section">
+            <a class="button" href="setting.html">
+                <img src="setting.jpg" alt="Settings Icon" id="one"> Settings
+            </a>
+        </div>
+    </div>
+
+    <!-- WRAPPER STARTS HERE -->
+    <div class="main-wrapper">
+        <div class="main-content">
+            <div class="left-content">
+                <div class="quick-actions-container">
+                    <h2><span class="lightning-icon"></span> Quick Actions</h2>
+                    <div class="actions-grid">
+                        <div class="action-card voice" id="voiceQueryCard">
+                            <i class="fa-solid fa-microphone"></i>
+                            <p>Voice Query</p>
+                        </div>
+                        
+                        <label class="action-card visual" id="visualInputLabel">
+                            <i class="fas fa-camera"></i>
+                            <p>Visual Input</p>
+                        </label>
+                        <input type="file" id="imageInput" accept="image/*" style="display: none;" />
+
+                        <div class="action-card chart">
+                            <i class="fas fa-chart-line"></i>
+                            <p>Create Chart</p>
+                        </div>
+                    </div>
+                    <div id="preview-area"></div>
+                </div>
+
+                <div class="chat-container" id="chatContainer">
+                    <div class="chat-header">Interactive Chat</div>
+
+                    <div class="message">
+                        <div class="icon blue">🏢</div>
+                        <div>
+                            <div class="bubble">
+                                Hello! I'm your AI Learning Assistant. I can help you with questions, create visual aids, and monitor classroom engagement. What would you like to learn about today?
+                            </div>
+                            <div class="timestamp">Just now</div>
+                        </div>
+                    </div>
+
+                    <div class="message">
+                        <div class="icon green">🏢</div>
+                        <div>
+                            <div class="bubble">
+                                Welcome to your AI Learning Assistant! I'm ready to help with multimodal learning. Try asking a question, using voice input, or through chatting.
+                            </div>
+                            <div class="timestamp">Just now</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chat-input-container">
+                    <div class="chat-input-wrapper">
+                        <input type="text" id="chatInput" placeholder="Ask me anything..." />
+
+                        <div class="input-actions">
+                            <button id="micBtn" title="Speak">
+                                <i class="fas fa-microphone"></i>
+                            </button>
+                            <button id="sendChatBtn" title="Search">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="suggestions-container">
+            <h2> AI Suggestions</h2>
+            <h5>Ask the questions based on like mensioned subjects.</h5>
+
+            <div class="subject-card" style="background-color: #fff8e6">
+                <h3>Operating Systems</h3>
+                <div class="priority high">High</div>
+            </div>
+
+            <div class="subject-card" style="background-color: #fff8e6;">
+                <h3>Computer Organization</h3>
+                <div class="priority high">High</div>
+            </div>
+
+            <div class="subject-card" style="background-color: #fff8e6;" >
+                <h3>Computer Networks</h3>
+                <div class="priority medium" style="background-color: #6b568b;">High</div>
+            </div>
+
+            <div class="subject-card" style="background-color: #f2edfd;">
+                <h3>Database Management</h3>
+                <div class="priority medium">Medium</div>
+            </div>
+
+            <div class="subject-card" style="background-color: #f2edfd;">
+                <h3>Compiler Design</h3>
+                <div class="priority low">Medium</div>
+            </div>
+
+            <div class="subject-card" style="background-color: #fff8e6;">
+                <h3>Data Structures</h3>
+                <div class="priority high">High</div>
+            </div>
+
+            <div class="subject-card" style="background-color: #f2edfd;">
+                <h3>Web Applications</h3>
+                <div class="priority medium">Medium</div>
+            </div>
+
+            <div class="suggestion-card violet" style="background-color: #fff8e6;">
+                <strong>Cyber Security</strong>
+                <div class="priority high">High</div>
+            </div>
+
+            <div class="suggestion-card yellow">
+                <strong>Software Engineering </strong>
+                <div class="priority high">High</div>
+            </div>
+        </div>
+    </div>
+    <!-- WRAPPER ENDS HERE -->
+
+    <div class="modal-overlay" id="choiceModalOverlay">
+        <div class="modal-content">
+            <h3>Visual Input</h3>
+            <button id="takePhotoOption">Take a Photo</button>
+            <button id="chooseFromGalleryOption">Upload from Gallery</button>
+            <button id="cancelVisualInput">Cancel</button>
+        </div>
+    </div>
+
+    <div class="camera-preview-container" id="cameraPreviewContainer">
+        <video id="camera-feed" autoplay playsinline></video>
+        <canvas id="photo-canvas" style="display: none;"></canvas>
+        <div id="camera-controls">
+            <button id="takePhotoBtn">Take Photo</button>
+            <button id="cancelPhotoBtn">Cancel</button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="voiceRecorderModal">
+        <div class="modal-content">
+            <h3>Voice Query</h3>
+            <div id="recording-status">Recording complete!</div>
+            <div class="voice-controls">
+                <button id="playRecordingBtn"><i class="fas fa-play"></i> Play</button>
+                <button id="sendVoiceQueryBtn"><i class="fas fa-paper-plane"></i> Send Query</button>
+                <button id="recordAgainBtn"><i class="fas fa-redo"></i> Record </button>
+                <button id="cancelVoiceRecordingBtn"><i class="fas fa-times"></i> Cancel</button>
+            </div>
+            <audio id="audioPlayback" controls style="display: none;"></audio>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="loginpage.css">
+    <script>
+        function fun(event) {
+            event.preventDefault(); 
+
+            var emlv = document.forms[0].eml.value.trim();
+            var pswdv = document.forms[0].pswd.value.trim();
+        
+            var emlreg = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            var pswdreg = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*?&]{6,}$/; 
+        
+            var reml = emlreg.test(emlv);
+            var rpswd = pswdreg.test(pswdv);
+        
+            if (reml && rpswd) {
+                alert("Login successful!");
+                window.location.href = "dashboard.html"; 
+                return true;
+            } else {
+                if (!rpswd) {
+                    alert("Invalid password! Must be at least 6 characters and include both letters and numbers.");
+                    document.forms[0].pswd.focus();
+                }
+                if (!reml) {
+                    alert("Invalid email format");
+                    document.forms[0].eml.focus();
+                }
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <h2>Login</h2>
+            <form onsubmit="fun(event)">
+                <div class="input-group">
+                    <label>Email</label>
+                    <input type="text" placeholder="Type your Email" name="eml">
+                </div>
+                <div class="input-group">
+                    <label>Password</label>
+                    <input type="password" placeholder="Type your password" name="pswd">
+                </div>
+                <div class="forgot-password">
+                    <a href="forgotpassword.html">Forgot password?</a>
+                </div>
+                <button type="submit" class="login-btn">LOGIN</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
