@@ -8,6 +8,8 @@ PPT : https://docs.google.com/presentation/d/1Tmyl4seUvtXvLyQQ3nHrzSazt-CimzYH/e
 
 Demo : https://drive.google.com/file/d/1t39i0bgkhmVleRThM0ZNY3iFekM1-XAT/view?usp=sharing
 
+Report :  https://drive.google.com/file/d/1rgh9XMW2fPGdL57YUQcuQ840y4MxtcDi/view?usp=sharing
+
 ## 🚀 Features
 
 - 🔍 **Text-Based Chat**: Ask any academic question via text input.
