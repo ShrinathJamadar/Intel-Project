@@ -2,6 +2,10 @@
 
 An intelligent web application that assists students with subject-related queries using voice, text, or visual input. It uses natural language processing (NLP) to generate answers in real time with the help of a locally running LLM via Ollama.
 
+
+PPT : https://docs.google.com/presentation/d/1Tmyl4seUvtXvLyQQ3nHrzSazt-CimzYH/edit?usp=sharing&ouid=116693502915413489920&rtpof=true&sd=true
+Demo : https://drive.google.com/file/d/1t39i0bgkhmVleRThM0ZNY3iFekM1-XAT/view?usp=sharing
+
 ## 🚀 Features
 
 - 🔍 **Text-Based Chat**: Ask any academic question via text input.
